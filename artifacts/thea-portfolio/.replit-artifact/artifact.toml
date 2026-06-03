@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Thea Rivera — Artist Portfolio"
+version = "1.0.0"
+id = "artifacts/thea-portfolio"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18884
+
+[services.development]
+run = "pnpm --filter @workspace/thea-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/thea-portfolio", "run", "build" ]
+publicDir = "artifacts/thea-portfolio/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18884"
+BASE_PATH = "/"

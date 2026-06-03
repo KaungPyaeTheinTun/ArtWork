@@ -1,0 +1,62 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "7YcN9Ee7KK9_T-fT4YTMv"
+uri = "file://artifacts/thea-portfolio/src/assets/images/hero-bg.png"
+type = "image"
+title = "Dark expressionist painting texture"
+
+[[generated]]
+id = "owJe9FAEwcUUJZ215mrda"
+uri = "file://artifacts/thea-portfolio/src/assets/images/hero-portrait.png"
+type = "image"
+title = "Tall portrait female artist"
+
+[[generated]]
+id = "9HRlvlcgQRAEZeKYHER7A"
+uri = "file://artifacts/thea-portfolio/src/assets/images/hero-texture.png"
+type = "image"
+title = "Close-up art material texture"
+
+[[generated]]
+id = "kunSd8B5SGLdQTm2ledc2"
+uri = "file://artifacts/thea-portfolio/src/assets/images/hero-polaroid.png"
+type = "image"
+title = "Polaroid artwork detail"
+
+[[generated]]
+id = "h7YZW4yix4F7Iulfb0tWT"
+uri = "file://artifacts/thea-portfolio/src/assets/images/about-portrait.png"
+type = "image"
+title = "Portrait artist at work"
+
+[[generated]]
+id = "imJdUiGe9tuLlHSmkpQXO"
+uri = "file://artifacts/thea-portfolio/src/assets/images/artwork-1.png"
+type = "image"
+title = "The Last Rehearsal painting"
+
+[[generated]]
+id = "3DcA-n069VWBBjQEuKVZq"
+uri = "file://artifacts/thea-portfolio/src/assets/images/artwork-2.png"
+type = "image"
+title = "Midnight Script painting"
+
+[[generated]]
+id = "c5zW4FYCN6qLZar9OWrLA"
+uri = "file://artifacts/thea-portfolio/src/assets/images/artwork-3.png"
+type = "image"
+title = "The Audience installation"
+
+[[generated]]
+id = "c-_DC_DcPuxXEiFQr_y5N"
+uri = "file://artifacts/thea-portfolio/src/assets/images/process-1.png"
+type = "image"
+title = "Process studio image 1"
+
+[[generated]]
+id = "ypM1OKdWY9OL1XvPs0vEo"
+uri = "file://artifacts/thea-portfolio/src/assets/images/process-2.png"
+type = "image"
+title = "Process studio image 2"
