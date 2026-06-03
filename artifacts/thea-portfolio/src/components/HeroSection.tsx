@@ -10,113 +10,151 @@ export default function HeroSection() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    setTimeout(() => setMounted(true), 100);
     const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const title = "Modern Expressionism in Paint and Form".split(" ");
+  const words = ['Modern', 'Expressionism', 'in', 'Paint', 'and', 'Form'];
 
   return (
-    <section className="relative w-full h-[100vh] overflow-hidden bg-[#0d0d0d] flex items-center">
-      {/* Background layer */}
-      <div 
-        className="absolute inset-0 z-0 opacity-60"
-        style={{ 
+    <section className="relative w-full h-[100vh] overflow-hidden bg-[#0d0d0d]">
+
+      {/* Layer 1: Full-bleed background painting */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
           backgroundImage: `url(${heroBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          transform: `translateY(${scrollY * 0.3}px)`
+          transform: `translateY(${scrollY * 0.25}px)`,
+          opacity: 0.65,
         }}
       />
-      
-      {/* Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between mt-16">
-        
-        {/* Left Image (Portrait) */}
-        <div 
-          className={`absolute left-[5%] md:left-[10%] top-[15%] md:top-[20%] w-[180px] md:w-[280px] aspect-[2/3] z-[2] transition-all duration-800 ease-out`}
+
+      {/* Layer 2: Left portrait */}
+      <div
+        className="absolute left-0 bottom-0 z-[2] w-[280px] md:w-[340px] h-[75vh] overflow-hidden"
+        style={{
+          transform: `translateY(calc(${scrollY * -0.12}px + ${mounted ? '0px' : '60px'}))`,
+          opacity: mounted ? 1 : 0,
+          transition: 'opacity 800ms ease-out 400ms, transform 800ms ease-out 400ms',
+        }}
+      >
+        <img
+          src={heroPortrait}
+          alt="Thea Rivera"
+          className="w-full h-full object-cover object-top"
+          style={{ maskImage: 'linear-gradient(to top, transparent 0%, black 25%)' }}
+        />
+      </div>
+
+      {/* Layer 3: Right texture image */}
+      <div
+        className="absolute right-0 top-[10%] z-[2] w-[220px] md:w-[300px] aspect-[2/3] overflow-hidden"
+        style={{
+          transform: `translateY(calc(${scrollY * -0.08}px + ${mounted ? '0px' : '-60px'}))`,
+          opacity: mounted ? 0.75 : 0,
+          transition: 'opacity 800ms ease-out 600ms, transform 800ms ease-out 600ms',
+        }}
+      >
+        <img
+          src={heroTexture}
+          alt="Artwork detail"
+          className="w-full h-full object-cover"
+          style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)' }}
+        />
+      </div>
+
+      {/* Dark vignette on sides so text is readable */}
+      <div
+        className="absolute inset-0 z-[3] pointer-events-none"
+        style={{
+          background: 'linear-gradient(to right, rgba(13,13,13,0.3) 0%, transparent 30%, transparent 65%, rgba(13,13,13,0.4) 100%)',
+        }}
+      />
+      <div
+        className="absolute inset-0 z-[3] pointer-events-none"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(13,13,13,0.2) 0%, transparent 20%, transparent 70%, rgba(13,13,13,0.8) 100%)',
+        }}
+      />
+
+      {/* Layer 4: Text content — always on top */}
+      <div className="absolute inset-0 z-[4] flex flex-col justify-center px-8 md:px-16 lg:px-24 pt-16">
+
+        {/* Eyebrow */}
+        <span
+          className="text-[#8a8580] font-normal text-[11px] tracking-[0.3em] uppercase mb-8 block"
           style={{
-            transform: `translateY(${scrollY * -0.15}px) translateX(${mounted ? 0 : '-60px'})`,
             opacity: mounted ? 1 : 0,
-            transitionDelay: '400ms'
+            transition: 'opacity 600ms ease 200ms',
           }}
         >
-          <img src={heroPortrait} alt="Thea Rivera Portrait" className="w-full h-full object-cover shadow-2xl" />
-        </div>
+          based in Lisbon, Portugal
+        </span>
 
-        {/* Right Image (Texture) */}
-        <div 
-          className={`absolute right-[5%] md:right-[15%] bottom-[20%] md:bottom-[25%] w-[150px] md:w-[240px] aspect-square z-[3] transition-all duration-800 ease-out`}
-          style={{
-            transform: `translateY(${scrollY * -0.1}px) translateX(${mounted ? 0 : '60px'})`,
-            opacity: mounted ? 1 : 0,
-            transitionDelay: '600ms'
-          }}
+        {/* H1 — word-by-word reveal */}
+        <h1 className="font-black leading-[0.92] text-[#f5f0eb] mb-8 max-w-[720px]"
+          style={{ fontSize: 'clamp(42px, 7vw, 90px)' }}
         >
-          <img src={heroTexture} alt="Artwork Texture" className="w-full h-full object-cover shadow-2xl" />
-        </div>
-
-        {/* Center Content */}
-        <div className="relative z-[4] w-full max-w-3xl mx-auto text-center md:text-left flex flex-col items-center md:items-start mt-32 md:mt-0">
-          
-          <div className="flex relative">
-            <div className="flex flex-col">
-              <span className="text-[#8a8580] font-normal text-[11px] tracking-[0.3em] uppercase mb-6">
-                based in Lisbon, Portugal
-              </span>
-              
-              <h1 className="font-black text-[clamp(48px,8vw,96px)] leading-[0.95] text-[#f5f0eb] flex flex-wrap justify-center md:justify-start gap-x-4 max-w-[800px]">
-                {title.map((word, i) => (
-                  <span key={i} className="overflow-hidden inline-block pb-2">
-                    <span 
-                      className={`inline-block transition-all duration-800 cubic-bezier(0.22, 1, 0.36, 1)`}
-                      style={{
-                        transform: mounted ? 'translateY(0)' : 'translateY(80px)',
-                        opacity: mounted ? 1 : 0,
-                        transitionDelay: `${i * 100}ms`
-                      }}
-                    >
-                      {word}
-                    </span>
-                  </span>
-                ))}
-              </h1>
-
-              <p 
-                className={`mt-8 text-[#8a8580] font-light text-[16px] max-w-[380px] leading-relaxed transition-opacity duration-1000 text-center md:text-left mx-auto md:mx-0`}
-                style={{ 
+          {words.map((word, i) => (
+            <span key={i} className="inline-block overflow-hidden mr-[0.2em] align-bottom">
+              <span
+                className="inline-block"
+                style={{
+                  transform: mounted ? 'translateY(0)' : 'translateY(80px)',
                   opacity: mounted ? 1 : 0,
-                  transitionDelay: '800ms'
+                  transition: `transform 800ms cubic-bezier(0.22,1,0.36,1) ${i * 100 + 300}ms, opacity 800ms ease ${i * 100 + 300}ms`,
                 }}
               >
-                Whether it's oil on canvas or movement on stage, Thea Rivera transforms the ordinary into the extraordinary.
-              </p>
-            </div>
+                {word}
+              </span>
+            </span>
+          ))}
+        </h1>
 
-            {/* Polaroid */}
-            <div 
-              className={`hidden md:block absolute -right-16 -bottom-16 w-32 aspect-square p-2 bg-[#141414] border border-white/20 shadow-xl transition-all duration-800`}
-              style={{
-                transform: mounted ? 'rotate(-3deg) scale(1)' : 'rotate(-10deg) scale(0.8)',
-                opacity: mounted ? 1 : 0,
-                transitionDelay: '1000ms'
-              }}
-            >
-              <img src={heroPolaroid} alt="Artwork details" className="w-full h-full object-cover" />
-            </div>
+        {/* Subtitle */}
+        <p
+          className="text-[#8a8580] font-light text-[16px] max-w-[380px] leading-relaxed"
+          style={{
+            opacity: mounted ? 1 : 0,
+            transition: 'opacity 800ms ease 1000ms',
+          }}
+        >
+          Whether it's oil on canvas or movement on stage, Thea Rivera transforms the ordinary into the extraordinary.
+        </p>
+
+        {/* Polaroid corner card */}
+        <div
+          className="absolute top-[12%] right-[6%] md:right-[8%] w-[110px] md:w-[140px] hidden md:block"
+          style={{
+            transform: mounted ? 'rotate(-3deg) scale(1)' : 'rotate(-8deg) scale(0.75)',
+            opacity: mounted ? 1 : 0,
+            transition: 'transform 900ms cubic-bezier(0.22,1,0.36,1) 1000ms, opacity 700ms ease 1000ms',
+          }}
+        >
+          <div className="bg-[#1a1a1a] p-2 pb-6 border border-white/15 shadow-2xl">
+            <img src={heroPolaroid} alt="Studio moment" className="w-full aspect-square object-cover" />
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div 
-        className={`absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 transition-opacity duration-500`}
-        style={{ opacity: scrollY > 100 ? 0 : (mounted ? 1 : 0), transitionDelay: '1200ms' }}
+      {/* Scroll indicator */}
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[5] flex flex-col items-center gap-3 pointer-events-none"
+        style={{
+          opacity: scrollY > 100 ? 0 : mounted ? 1 : 0,
+          transition: 'opacity 300ms ease',
+          transitionDelay: scrollY > 100 ? '0ms' : '1400ms',
+        }}
       >
-        <span className="text-[#f5f0eb] font-normal text-[10px] tracking-widest uppercase">Scroll for more</span>
-        <div className="w-[1px] h-8 bg-[#8a8580] animate-[downArrow_1.2s_infinite]" />
+        <span className="text-[#8a8580] font-normal text-[10px] tracking-[0.35em] uppercase">Scroll for more</span>
+        <div
+          className="w-[1px] h-8 bg-[#8a8580]"
+          style={{ animation: 'downArrow 1.2s ease-in-out infinite' }}
+        />
       </div>
     </section>
   );

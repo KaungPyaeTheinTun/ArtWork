@@ -60,3 +60,33 @@ id = "ypM1OKdWY9OL1XvPs0vEo"
 uri = "file://artifacts/thea-portfolio/src/assets/images/process-2.png"
 type = "image"
 title = "Process studio image 2"
+
+[[generated]]
+id = "MU0qvFi0ghN3crRj5n-5Y"
+uri = "file://artifacts/thea-portfolio/src/assets/images/collab-light.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "aVH-VeysBavHhZGd_QlVR"
+uri = "file://artifacts/thea-portfolio/src/assets/images/collab-wall.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "Ouyp9ztsr3PFuKkP-5pVQ"
+uri = "file://artifacts/thea-portfolio/src/assets/images/collab-body.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "mLSU3rjj4wjae5n0TAiNJ"
+uri = "file://artifacts/thea-portfolio/src/assets/images/process-3.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "x9HR_S77w0Ec4xVn0hhn7"
+uri = "file://artifacts/thea-portfolio/src/assets/images/cta-bg.png"
+type = "image"
+title = "generated_image"
