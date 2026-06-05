@@ -1,21 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
 :root {
   /* Brand palette — dark expressionist */
-  --background: 0 0% 5%;        /* #0d0d0d */
-  --foreground: 37 33% 94%;     /* #f5f0eb */
-  --card: 0 0% 8%;              /* #141414 */
+  --background: 0 0% 5%; /* #0d0d0d */
+  --foreground: 37 33% 94%; /* #f5f0eb */
+  --card: 0 0% 8%; /* #141414 */
   --card-foreground: 37 33% 94%;
   --card-border: 0 0% 100% / 0.08;
   --border: 0 0% 100% / 0.08;
   --input: 0 0% 100% / 0.08;
   --ring: 37 28% 69%;
-  --primary: 37 28% 69%;        /* #c9b99a warm gold */
+  --primary: 37 28% 69%; /* #c9b99a warm gold */
   --primary-foreground: 0 0% 5%;
   --secondary: 0 0% 8%;
   --secondary-foreground: 37 33% 94%;
@@ -41,7 +46,7 @@
   --chart-3: 0 0% 8%;
   --chart-4: 37 33% 94%;
   --chart-5: 0 0% 5%;
-  --app-font-sans: 'Inter', sans-serif;
+  --app-font-sans: "Inter", sans-serif;
   --app-font-serif: Georgia, serif;
   --app-font-mono: Menlo, monospace;
   --radius: 0.25rem;
@@ -52,20 +57,20 @@
   --text-muted: #8a8580;
   --accent: #c9b99a;
   --white: #ffffff;
-  --border-raw: rgba(255,255,255,0.08);
+  --border-raw: rgba(255, 255, 255, 0.08);
 }
 
 .dark {
   /* Brand palette — dark expressionist */
-  --background: 0 0% 5%;        /* #0d0d0d */
-  --foreground: 37 33% 94%;     /* #f5f0eb */
-  --card: 0 0% 8%;              /* #141414 */
+  --background: 0 0% 5%; /* #0d0d0d */
+  --foreground: 37 33% 94%; /* #f5f0eb */
+  --card: 0 0% 8%; /* #141414 */
   --card-foreground: 37 33% 94%;
   --card-border: 0 0% 100% / 0.08;
   --border: 0 0% 100% / 0.08;
   --input: 0 0% 100% / 0.08;
   --ring: 37 28% 69%;
-  --primary: 37 28% 69%;        /* #c9b99a warm gold */
+  --primary: 37 28% 69%; /* #c9b99a warm gold */
   --primary-foreground: 0 0% 5%;
   --secondary: 0 0% 8%;
   --secondary-foreground: 37 33% 94%;
@@ -91,7 +96,7 @@
   --chart-3: 0 0% 8%;
   --chart-4: 37 33% 94%;
   --chart-5: 0 0% 5%;
-  --app-font-sans: 'Inter', sans-serif;
+  --app-font-sans: "Inter", sans-serif;
   --app-font-serif: Georgia, serif;
   --app-font-mono: Menlo, monospace;
   --radius: 0.25rem;
@@ -102,7 +107,7 @@
   --text-muted: #8a8580;
   --accent: #c9b99a;
   --white: #ffffff;
-  --border-raw: rgba(255,255,255,0.08);
+  --border-raw: rgba(255, 255, 255, 0.08);
 }
 
 @theme inline {
@@ -177,19 +182,36 @@
   }
 }
 
-body { background: #0d0d0d; color: #f5f0eb; font-family: 'Inter', sans-serif; }
+body {
+  background: #0d0d0d;
+  color: #f5f0eb;
+  font-family: "Inter", sans-serif;
+}
 
 @keyframes marqueeLeft {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 @keyframes marqueeRight {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 @keyframes downArrow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
 }
 
 .clip-reveal {

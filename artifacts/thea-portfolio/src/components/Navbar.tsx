@@ -17,7 +17,7 @@ export default function Navbar() {
     { label: 'ABOUT', href: isGallery ? '/#about' : '#about', isAnchor: true },
     { label: 'ARTWORKS', href: isGallery ? '/#artworks' : '#artworks', isAnchor: true },
     { label: 'EXPLORE', href: '/explore', isAnchor: false },
-    { label: 'COMMISSIONS', href: isGallery ? '/#commissions' : '#commissions', isAnchor: true },
+    // { label: 'COMMISSIONS', href: isGallery ? '/#commissions' : '#commissions', isAnchor: true },
   ];
 
   return (
