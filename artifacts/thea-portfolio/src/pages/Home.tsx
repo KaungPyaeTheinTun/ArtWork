@@ -44,7 +44,7 @@ export default function Home() {
         <ProcessSection />
         <CollaborationsSection />
         <TestimonialsSection />
-        <CommissionsSection />
+        {/* <CommissionsSection /> */}
         <CTASection />
       </main>
       <Footer />

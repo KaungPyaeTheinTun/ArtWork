@@ -6,6 +6,7 @@
     "postinstall": "npm --prefix artifacts/thea-portfolio install",
     "dev": "npm --prefix artifacts/thea-portfolio run dev",
     "build": "npm --prefix artifacts/thea-portfolio run build",
-    "preview": "npm --prefix artifacts/thea-portfolio run preview"
+    "preview": "npm --prefix artifacts/thea-portfolio run preview",
+    "deploy": "npm --prefix artifacts/thea-portfolio run build && firebase deploy --only hosting"
   }
 }
